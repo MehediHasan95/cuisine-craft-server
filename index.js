@@ -14,4 +14,10 @@ app.get("/", (req, res) => {
 
 app.get("/v1/chefrecipes", (req, res) => res.send(chefrecipes));
 
+app.get("/v1/chefdetails/:id", (req, res) => {
+  const id = req.params.id;
+  const query = chefrecipes.find((e) => e.id === id);
+  res.send(query);
+});
+
 app.listen(port, () => console.log("Server is running port: ", port));
